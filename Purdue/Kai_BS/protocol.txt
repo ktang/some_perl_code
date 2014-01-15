@@ -1,0 +1,107 @@
+1 download raw data
+
+2 install SolexaQA
+SolexaQA requires Perl, R and matrix2png
+
+matrix2png requires GD
+Note: You must have 'GD' installed on your system for matrix2png to
+      build. Make sure that the configure script can find libgd and the gd
+      header files. GD can be obtained from www.boutell.com. GD in turn
+      requires libpng and zlib, which are standard on many systems.
+
+
+3 check_quality
+use 
+
+4  trim by quality
+~/deep_seq_data/June18_BS_data/WT_23:28:24_N=503$ perl  batch_cmd.pl 
+time perl ./fastq2fasta.pl /Users/tang58/deep_seq_data/June18_BS_data/WT/s_8_1_sequence.txt.trimmed /Users/tang58/deep_seq_data/June18_BS_data/WT/Pair1/s_8_1_trimmed.fa >> /Users/tang58/deep_seq_data/June18_BS_data/WT/log.txt
+time perl ./fastq2fasta.pl /Users/tang58/deep_seq_data/June18_BS_data/WT/s_8_2_sequence.txt.trimmed /Users/tang58/deep_seq_data/June18_BS_data/WT/Pair2/s_8_2_trimmed.fa >> /Users/tang58/deep_seq_data/June18_BS_data/WT/log.txt
+
+5 trim adapter
+time perl ./remove_adaptor_P1.pl /Users/tang58/deep_seq_data/June18_BS_data/WT/Pair1 /Users/tang58/deep_seq_data/June18_BS_data/WT >> /Users/tang58/deep_seq_data/June18_BS_data/WT/log.txt
+time perl ./remove_adaptor_P2.pl /Users/tang58/deep_seq_data/June18_BS_data/WT/Pair2 /Users/tang58/deep_seq_data/June18_BS_data/WT >> /Users/tang58/deep_seq_data/June18_BS_data/WT/log.txt
+
+6 get pair for brat
+~/deep_seq_data/June18_BS_data/WT_23:32:11_N=515$ date; time ./get_paired_reads_for_large_file_brat_input.pl /Users/tang58/deep_seq_data/June18_BS_data/WT /Users/tang58/deep_seq_data/June18_BS_data/WT/clean_reads/ >> /Users/tang58/deep_seq_data/June18_BS_data/WT/log.txt
+Tue Jun 28 23:52:15 EDT 2011
+debug:	0	para:	0
+s_8_1_sequence_trimmed_noadapt.fa
+s_8_2_sequence_trimmed_noadapt.fa
+10000000	DONE
+20000000	DONE
+30000000	DONE
+40000000	DONE
+50000000	DONE
+60000000	DONE
+65000000	DONE
+70000000	DONE
+75000000	DONE
+80000000	DONE
+85000000	DONE
+90000000	DONE
+95000000	DONE
+100000000	DONE
+105000000	DONE
+110000000	DONE
+
+real	489m9.336s
+user	420m38.263s
+sys	14m49.763s
+
+
+7 brat use 1.18 because input format
+
+time /Users/tang58/Software/BRAT/brat-1.1.18/brat -r /Users/tang58/DataBase/BRAT_reference_files/references_names.txt -1 /Users/tang58/deep_seq_data/June18_BS_data/WT/clean_reads/s_8_1_pairs.txt -2 /Users/tang58/deep_seq_data/June18_BS_data/WT/clean_reads/s_8_2_pairs.txt -u -i 0 -a 1000 -m 2 -pe -bs -o col0_s_8_paired_brat.txt  >>    brat_1.18_s_8_col0_log.txt      2>&1
+
+real	1156m24.318s
+user	1139m53.972s
+sys	13m23.771s
+
+date; time /Users/tang58/Software/BRAT/brat-1.1.18/brat -r /Users/tang58/DataBase/BRAT_reference_files/references_names.txt -s /Users/tang58/deep_seq_data/June18_BS_data/WT/clean_reads/s_8_1_single.txt -m 2 -bs -o col0_s_8_1_brat.txt
+real	24m22.597s
+user	23m41.655s
+sys	0m10.599s
+
+date; time /Users/tang58/Software/BRAT/brat-1.1.18/brat -r /Users/tang58/DataBase/BRAT_reference_files/references_names.txt -s /Users/tang58/deep_seq_data/June18_BS_data/WT/clean_reads/s_8_2_single.txt -m 2 -bs -o col0_s_8_2_brat.txt -A
+real	37m53.414s
+user	37m23.593s
+sys	0m14.392s
+
+8  calculate coverage
+date; time perl /Users/tang58/Kai_BS/calculate_coverage_Kai.pl *brat.txt  >> coverage_stats.txt
+real	67m58.262s
+user	65m53.304s
+sys	0m55.680s
+
+9 count
+date; time /Users/tang58/Software/BRAT/brat-1.1.18/acgt-count -r /Users/tang58/DataBase/BRAT_reference_files/references_names.txt -P col0_s_8 -p s_8_paired_list.txt -s s_8_single_list.txt -B   (wrong)
+real	21m44.741s
+user	18m21.612s
+sys	2m56.906s
+
+date; time /Users/tang58/Software/BRAT/brat-1.1.19/acgt-count -r /Users/tang58/DataBase/BRAT_reference_files/references_names.txt -P acgt19_col0_s_8 -p s_8_paired_list.txt -s s_8_single_list.txt -B  
+
+
+
+10 cal error
+# wrong date; time  perl /Users/tang58/Kai_BS/conversion_error.pl col0_s_8_forw.txt >> col0_s_8_forw_conversion_error.txt # wrong
+# wrong date; time  perl /Users/tang58/Kai_BS/conversion_error.pl col0_s_8_rev.txt  >> col0_s_8_rev_conversion_error.txt   # wrong
+10s
+
+date; time  perl /Users/tang58/Kai_BS/conversion_error.pl acgt19_col0_s_8_rev.txt >> acgt19_col0_s_8_rev_conversion_error.txt
+date; time  perl /Users/tang58/Kai_BS/conversion_error.pl acgt19_col0_s_8_forw.txt >> acgt19_col0_s_8_forw_conversion_error.txt
+
+11 create_meth_db_input
+date; time perl ~/Kai_BS/create_meth_db_input_Kai.pl /Users/tang58/deep_seq_analysis/Bisulfite/work_with_Liu/data_UCR_server/ath_col0_position.txt /Volumes/Macintosh_HD_2/Kai_BS/brat_output /Volumes/Macintosh_HD_2/Kai_BS/brat_output col0_s_8_JKZ131 131
+real	11m0.656s
+user	10m24.079s
+sys	0m32.029s
+
+12 cal_methy
+#`perl calculate_methy_status_notype.pl $file $r > $outfile 2>>$log`;
+
+key error rate (chrC_plus + chrC_minus) / 2
+WT 0.017
+
+date; time perl /Users/tang58/Kai_BS/calculate_methy_status_notype.pl col0_s_8_JKZ131_meth_db_input.txt 0.017 >  col0_s_8_JKZ131_meth_db_input_onetype.txt 2>> cal_meth_log.txt

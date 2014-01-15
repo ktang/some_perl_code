@@ -1,0 +1,29 @@
+1, tophat
+
+
+#####
+# not necessary 
+#2,time perl ~/scripts_all/perl_code/Purdue/RNA_Seq/batch_cufflinks_step2.pl  
+####################
+
+3, cuffdiff
+
+time cuffdiff 
+-o ./rrp6L1-2_diff_out #output-dir
+-b /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome.fa #frag-bias-correct
+-p 12 
+-L rrp6L1-2,Col0_HM 
+-u /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Archives/archive-2012-03-08-18-36-47/Genes/genes.gtf 
+tophat_outdir/rrp6L1-2_thout/accepted_hits.bam 
+tophat_outdir/Col0_HM_thout/accepted_hits.bam 
+
+
+time cuffdiff 
+-b /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome.fa 
+-u /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Archives/archive-2012-03-08-18-36-47/Genes/genes.gtf  
+-p 4 
+
+-o . 
+-L mbd7_91-2,Col0_HM 
+/Volumes/My_Book/all_RNA_seq/display/mbd7_91-2_thout.bam  
+/Volumes/My_Book/all_RNA_seq/display/Col0_HM_thout.bam

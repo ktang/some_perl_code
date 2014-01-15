@@ -1,0 +1,2 @@
+Base composition for 27298912 sequences in s_2_1_sequence_trimmed_noadapt.fa:		A: 31.31%	C: 1.51%	G: 20.66%	T: 46.51%
+Base composition for 26484649 sequences in s_2_2_sequence_trimmed_noadapt.fa:		A: 46.16%	C: 20.9%	G: 1.42%	T: 31.52%

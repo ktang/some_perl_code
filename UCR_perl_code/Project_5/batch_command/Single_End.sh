@@ -1,0 +1,15 @@
+#!/bin/sh
+
+SE_fasta_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100527_HWUSI-EAS1501_0003_JKZCV/197_12Ros1 /Users/kaitang/Desktop/Project_5/soap_output/100527_HWUSI-EAS1501_0003_JKZCV/197_12Ros1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24
+
+SE_fasta_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100527_HWUSI-EAS1501_0003_JKZCV/SupRos1 /Users/kaitang/Desktop/Project_5/soap_output/100527_HWUSI-EAS1501_0003_JKZCV/SupRos1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24
+
+SE_fastq_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100527_HWUSI-EAS1501_0003_JKZCV/330_15Ros1 /Users/kaitang/Desktop/Project_5/soap_output/100527_HWUSI-EAS1501_0003_JKZCV/330_15Ros1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24
+
+SE_fastq_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/157_1Ros1 /Users/kaitang/Desktop/Project_5/soap_output/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/157_1Ros1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24
+
+SE_fastq_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/173_14Ros1 /Users/kaitang/Desktop/Project_5/soap_output/100511_HWUSI-EAS1501_0002_JKZ_AT_SR_110/173_14Ros1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24
+
+SE_fastq_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/129_2Ros1 /Users/kaitang/Desktop/Project_5/soap_output/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/129_2Ros1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24
+
+SE_fastq_batch_SOAP_pileup.pl /Users/kaitang/Desktop/zhu_lab_data_orignal/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/71_4Ros1 /Users/kaitang/Desktop/Project_5/soap_output/100503_HWUSI-EAS1501_0001_JKZ_AT_SR/71_4Ros1 GATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG C24

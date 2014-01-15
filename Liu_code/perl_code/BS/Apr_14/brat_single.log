@@ -1,0 +1,808 @@
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+uniquely mapped, ambiguous singles, unmapped:
+729882
+259226
+314813
+The number of reads not processed because of Ns or wrong length is 98646
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+uniquely mapped, ambiguous singles, unmapped:
+325923
+104502
+59233
+The number of reads not processed because of Ns or wrong length is 24869
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+uniquely mapped, ambiguous singles, unmapped:
+1458365
+428078
+345045
+The number of reads not processed because of Ns or wrong length is 188327
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+uniquely mapped, ambiguous singles, unmapped:
+639912
+167901
+115614
+The number of reads not processed because of Ns or wrong length is 71833
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+uniquely mapped, ambiguous singles, unmapped:
+1031635
+313017
+217077
+The number of reads not processed because of Ns or wrong length is 102963
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+uniquely mapped, ambiguous singles, unmapped:
+422897
+112761
+67207
+The number of reads not processed because of Ns or wrong length is 36508
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+2300000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+2300000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+2300000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+1300000
+1400000
+1500000
+1600000
+1700000
+1800000
+1900000
+2000000
+2100000
+2200000
+2300000
+uniquely mapped, ambiguous singles, unmapped:
+1393042
+493529
+433380
+The number of reads not processed because of Ns or wrong length is 199454
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is preprocessed 
+/mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is preprocessed 
+Space for hash table is allocated
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 1: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+Space for hash table is allocated
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 2: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+Space for hash table is allocated
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 3: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+Space for hash table is allocated
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr1.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr2.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr3.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr4.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chr5.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrM.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/chrC.fa is hashed 
+round 4: /mnt/disk4/renyi/bis_seq/col_ros2_11_09_10/reference_files/pUC19.fa is hashed 
+100000
+200000
+300000
+400000
+500000
+600000
+700000
+800000
+900000
+1000000
+1100000
+1200000
+uniquely mapped, ambiguous singles, unmapped:
+855762
+254217
+150313
+The number of reads not processed because of Ns or wrong length is 73187

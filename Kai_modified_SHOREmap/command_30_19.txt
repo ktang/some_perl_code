@@ -1,0 +1,122 @@
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.8 1 |wc -l
+       0
+
+real	0m2.330s
+user	0m2.251s
+sys	0m0.075s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.1 10 |wc -l
+       1
+
+real	0m2.207s
+user	0m2.123s
+sys	0m0.083s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.1 5 |wc -l
+      42
+
+real	0m2.205s
+user	0m2.122s
+sys	0m0.084s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.1 3 |wc -l
+     568
+
+real	0m2.233s
+user	0m2.150s
+sys	0m0.077s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.1 4 |wc -l
+     133
+
+real	0m2.205s
+user	0m2.123s
+sys	0m0.083s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.03 4 |wc -l
+       0
+
+real	0m2.202s
+user	0m2.122s
+sys	0m0.074s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.05 4 |wc -l
+       2
+
+real	0m2.282s
+user	0m2.193s
+sys	0m0.089s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.1 4 > /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_allC24Maker_region.txt
+
+real	0m2.246s
+user	0m2.166s
+sys	0m0.074s
+1165ZHUMAC01:Kai_modified_SHOREmap tang58$ time ./find_continuous_1s.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_C24bg_cross_Col0_marker_pos.txt 0.1 6Chr1	3824738	3825095
+Chr1	5459093	5459621
+Chr1	5853070	5853796
+Chr1	5908104	5908867
+Chr1	7965131	7965625
+Chr1	21621923	21622072
+Chr1	24697936	24698171
+Chr1	27786384	27786474
+Chr2	2093781	2094638
+Chr3	2892050	2892205
+Chr3	16932775	16933184
+Chr5	7028058	7028183
+
+real	0m2.214s
+user	0m2.135s
+sys	0m0.078s
+
+
+
+ time ./scripts_all/perl_code/Purdue/mut_wgs/find_diff_pos.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/s_3_1_sequence_s_3_2_sequence.pileup > /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_uniq_SNP.txt
+
+real	1m30.258s
+user	1m24.860s
+sys	0m4.100s
+
+
+1165ZHUMAC01:30_19PairedEnd tang58$ head -155518 30_19_uniq_SNP.txt | tail -13900 > 30_19_uniq_5450000_6000000.txt
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000.txt 5 0.8 | wc -l
+      15
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000.txt 5 0.8 
+Chr1	5460258	G	6	cCCCc.
+Chr1	5654176	T	5	aaaA.
+Chr1	5654221	A	5	ttT.^?T
+Chr1	5673740	T	5	Gg,gG
+Chr1	5680509	C	5	.Ttt^?t
+Chr1	5874179	G	5	TT.tt
+Chr1	5875914	T	8	.AAAGAaa
+Chr1	5910172	C	6	AaaaAA
+Chr1	5910201	G	5	TtTTT
+Chr1	5916901	A	5	Cc,CC
+Chr1	5917537	A	7	GGGGggg
+Chr1	5942691	G	8	AAaaaaaa
+Chr1	5942692	G	8	AAaaaaaa
+Chr1	5957093	T	7	gGGgggg
+Chr1	5995188	A	6	TtTT,T
+1165ZHUMAC01:30_19PairedEnd tang58$ time ~/scripts_all/perl_code/Purdue/mut_wgs/find_diff_pos.pl /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/s_3_1_sequence_s_3_2_sequence.pileup > /Users/tang58/mut_SNP_project/Mapping_F2_C24_mut_cross_to_Col0/30_19PairedEnd/30_19_uniq_SNP.txt
+
+real	1m34.558s
+user	1m29.613s
+sys	0m4.315s
+1165ZHUMAC01:30_19PairedEnd tang58$ wc -l 30_19_uniq_SNP.txt 
+ 2585611 30_19_uniq_SNP.txt
+1165ZHUMAC01:30_19PairedEnd tang58$ less 30_19_uniq_SNP.txt
+1165ZHUMAC01:30_19PairedEnd tang58$ less 30_19_uniq_SNP.txt 1165ZHUMAC01:30_19PairedEnd tang58$ head -191165 30_19_uniq_SNP.txt | tail -60000 > 30_19_uniq_5450000_6000000_new_addMarker.txt 1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000_new_addMarker.txt 5 0.8 | wc -l      13
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000_new_addMarker.txt 5 0.8 
+Chr1	5680509	C	5	.Ttt^?t
+Chr1	6237562	G	9	,aaaaaaaa
+Chr1	6237569	T	9	,aaaaaaaa
+Chr1	6273728	G	9	aa,aaaaaa
+Chr1	6303063	A	10	GGG,GGgGg,
+Chr1	6658825	T	16	,CccccC,Cc,cCcCg
+Chr1	6736396	A	5	CccC.
+Chr1	6973180	T	10	G$GGGGGG.gg
+Chr1	7255654	C	5	tt,tT
+Chr1	7335903	A	7	.TTTTTT
+Chr1	7696301	A	7	T$T$T$T$T$T$,
+Chr1	7895314	T	10	CCCC.CCCc.
+Chr1	7982226	C	6	TTTTtt
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000_new_addMarker.txt 3 0.3| wc -l
+    1243
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000_new_addMarker.txt 3 0.5| wc -l
+     264
+
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000_new_addMarker.txt 3 0.5| less
+1165ZHUMAC01:30_19PairedEnd tang58$ ~/scripts_all/perl_code/Purdue/mut_wgs/pileup_filter_v1.2.pl 30_19_uniq_5450000_6000000_new_addMarker.txt 5 0.5| less

@@ -1,0 +1,91 @@
+#!/usr/bin/perl -w
+# Copyright (C)  2010-
+# Program:			sgr2gff_percent_change.pl
+# Author:			Kai Tang <tangkai.ustc@gmail.com>
+# Program Date:		Jan 19,2011
+# Modifier:			Kai Tang <tangkai.ustc@gmail.com>
+# Last Modified:	Jan 19,2011
+# Description:		use sorted probe file (/Users/tang58/Nimblegen_project/Probes/sorted_position_ID_v2_with_strands_info.txt)
+#					to get the sorted (mut-wt)/wt value in gff format for not log2 value
+#**************************
+# Version: 1.0
+#**************************
+# e-mail:tangkai.ustc@gmail.com
+
+my $version="1.0";
+
+use strict;
+my $usage = "$0 <mut_average> <wt> <out>";
+die $usage unless(@ARGV == 3);
+
+my $probe_file = "/Users/tang58/Nimblegen_project/Probes/sorted_position_ID_v2_with_strands_info.txt";
+
+print STDERR ("\n==================| $0 start |==========================================\n");
+
+my $start = time();
+my $Time_Start = sub_format_datetime(localtime(time())); 
+print STDERR "Now = $Time_Start\n\n";
+
+my $mut_file = $ARGV[0];
+my $wt_file = $ARGV[1];
+my $output_file = $ARGV[2];
+
+open (PR, $probe_file)
+	or die "cannot open $probe_file:$!";
+	
+open (MUT, $mut_file)
+	or die "cannot open $mut_file:$!";
+	
+open (WT, $wt_file)
+	or die "cannot open $wt_file:$!";
+	
+open (OUT,">",$output_file)
+	or die "cannot open $output_file:$!";
+	
+my ($pr_l,$mut_l,$wt_l);
+my (@pr_s,@mut_s,@wt_s);
+while ($pr_l = <PR>, $mut_l = <MUT>, $wt_l = <WT>){
+	chomp ($pr_l,$mut_l,$wt_l);
+	@pr_s = split "\t", $pr_l;
+	@mut_s = split "\t", $mut_l;
+	@wt_s = split "\t", $wt_l;
+	if ($mut_s[1] != $wt_s[1]){
+		print STDERR "Error:\n$pr_l,$mut_l,$wt_l";
+	}
+	my $start = $pr_s[1] + 0;
+	if ($start != $wt_s[1]){
+		print STDERR "Error:\n$pr_l,$mut_l,$wt_l";
+	}
+	
+	my $diff = ($mut_s[2] - $wt_s[2])/$wt_s[2];
+	
+	my $line_out = join("\t",$pr_s[0],'.','.',$pr_s[1],$pr_s[2],$diff,'.','.','.');
+	print OUT $line_out,"\n";
+}
+
+sub_end_program();
+############################################################################################################
+######################                  sub_format_datetime
+############################################################################################################
+
+sub sub_format_datetime #Ê±¼ä×Ó³ÌÐò
+{
+    my ($sec, $min, $hour, $day, $mon, $year, $wday, $yday, $isdst) = @_;
+    sprintf("%4d-%02d-%02d %02d:%02d:%02d", $year+1900, $mon+1, $day, $hour, $min, $sec);
+}
+
+
+############################################################################################################
+######################                  sub_end_program
+############################################################################################################
+sub sub_end_program
+{
+	print STDERR ("\n............................................................\n");
+	my $Time_End = sub_format_datetime(localtime(time()));
+	print STDERR "Running from [$Time_Start] to [$Time_End]\n";
+	my $end = time();
+	printf STDERR ("Total execute time : %.2f s\n",$end-$start);
+	print STDERR ("==========================| $0  end  |==================================\n\n");
+	exit(0);
+
+}

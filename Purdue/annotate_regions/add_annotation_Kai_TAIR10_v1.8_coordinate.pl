@@ -1,0 +1,1 @@
+/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/add_annotation_Kai_TAIR10_v1.8_coordinate.pl

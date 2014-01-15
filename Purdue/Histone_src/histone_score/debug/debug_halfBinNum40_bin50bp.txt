@@ -1,0 +1,1 @@
+#GSM701923_H3K4me2_bowtie_v3m1p4_merged.bam	GSM701924_H3K4me3_bowtie_v3m1p4_merged.bam

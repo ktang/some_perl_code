@@ -1,0 +1,140 @@
+/Volumes/My_Book/20120226_YanJun_sRNA/clean_fa_16:40:42_N=512$ time zcat ../fq_gz/002831_col-1_ATCACG_L001_R1_001.fastq.gz ../fq_gz/002831_col-1_ATCACG_L002_R1_001.fastq.gz |  awk ' { if(NR % 4 == 1 ) { sub( /@/, ">", $1 ) ; print $1 } if(NR % 4 ==2) {print} } ' |  fastx_clipper -a TGGAATTCTCGGGTGCCA -l 18 -c -v -o YanJun_002831_col-1_sRNA_clean_min18.fa
+
+
+###########
+# 1 , download and check in FastQC
+###############
+first three bases is barcode
+adapter: CTGTAGGCA
+
+#########
+# 2, trim
+##############
+
+fastx_trimmer -f 4  |  fastx_clipper -a CTGTAGGCA -l 18 -c -v | fastq_to_fasta -v -z -o #########nrpd1_40.fa.gz
+
+/Volumes/My_Book/20130206_Huiming_smallRNA_Seq/small_RNA_data_from_SH_server/clean_data
+WT:
+time zcat ../raw_fq/20131002/col0_Heng.fq.gz | fastx_trimmer -f 4  |  fastx_clipper -a CTGTAGGCA -l 18 -c -v | fastq_to_fasta -v -z -o col0_Heng_clean.fa.gz
+Clipping Adapter: CTGTAGGCA
+Min. Length: 18
+Non-Clipped reads - discarded.
+Input: 6625641 reads.
+Output: 6471185 reads.
+discarded 102680 too-short reads.
+discarded 38621 adapter-only reads.
+discarded 12274 non-clipped reads.
+discarded 881 N reads.
+Input: 6471185 reads.
+Output: 6471185 reads.
+discarded 0 (0%) low-quality reads.
+
+real	2m14.787s
+user	3m39.300s
+sys	0m2.929s
+
+
+dtf1
+time zcat ../raw_fq/20131002/dtf1.fq.gz | fastx_trimmer -f 4  |  fastx_clipper -a CTGTAGGCA -l 18 -c -v | fastq_to_fasta -v -z -o dtf1_clean_sRNA.fa.gz
+Clipping Adapter: CTGTAGGCA
+Min. Length: 18
+Non-Clipped reads - discarded.
+Input: 7204173 reads.
+Output: 6950851 reads.
+discarded 129922 too-short reads.
+discarded 108306 adapter-only reads.
+discarded 14133 non-clipped reads.
+discarded 961 N reads.
+Input: 6950851 reads.
+Output: 6950851 reads.
+discarded 0 (0%) low-quality reads.
+
+real	2m22.023s
+user	3m54.991s
+sys	0m3.145s
+###################
+cal distribution #time cat nrpd1_clean_18_32.fa | awk '{if(NR%2 == 0) cnt[length($1)] ++} END { for (x in cnt){print x,cnt[x]} }'  | sort -k1,1n | perl -lane 'print join("\t", @F)' > nrpd1_clean_18_32_length_stat.txt
+
+time zcat col0_Heng_clean_sRNA.fa.gz | awk '{if(NR%2 == 0) cnt[length($1)] ++} END { for (x in cnt){print x,cnt[x]} }'  | sort -k1,1n | perl -lane 'print join("\t", @F)' > col0_Heng_clean_sRNA_length_stat.txt
+
+real	0m12.127s
+user	0m14.704s
+sys	0m0.278s
+
+time zcat dtf1_clean_sRNA.fa.gz | awk '{if(NR%2 == 0) cnt[length($1)] ++} END { for (x in cnt){print x,cnt[x]} }'  | sort -k1,1n | perl -lane 'print join("\t", @F)' > dtf1_clean_sRNA_length_stat.txt
+
+real	0m12.928s
+user	0m15.621s
+sys	0m0.292s
+
+#########
+# 3, bowtie /bowtie-1.0.0
+##############
+zcat XXXXXX.fa.gz  | bowtie -t  -p 3 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f -  -S | perl -lane 'print if($F[2] ne "*")' | samtools view -b -S -  > XXX_bowtie_v0k100.bam
+
+
+time zcat col0_Heng_clean_sRNA.fa.gz | bowtie -t  -p 3 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f -  -S | perl -lane 'print if($F[2] ne "*")' | samtools view -b -S -  > col0_Heng_clean_sRNA_bowtie1.0.0_v0k100.bam
+Time loading forward index: 00:00:00
+[samopen] SAM header is present: 7 sequences.
+Time for 0-mismatch search: 00:05:20
+# reads processed: 6471185
+# reads with at least one reported alignment: 5442534 (84.10%)
+# reads that failed to align: 1028651 (15.90%)
+Reported 20977311 alignments to 1 output stream(s)
+Time searching: 00:05:20
+Overall time: 00:05:20
+
+real	5m20.391s
+user	15m39.378s
+sys	3m25.731s
+
+
+ time zcat dtf1_clean_sRNA.fa.gz | bowtie -t  -p 3 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f -  -S | perl -lane 'print if($F[2] ne "*")' | samtools view -b -S -  > dtf1_clean_sRNA_bowtie1.0.0_v0k100.bamTime loading forward index: 00:00:00
+[samopen] SAM header is present: 7 sequences.
+Time for 0-mismatch search: 00:04:45
+# reads processed: 6950851
+# reads with at least one reported alignment: 5907685 (84.99%)
+# reads that failed to align: 1043166 (15.01%)
+Reported 17588168 alignments to 1 output stream(s)
+Time searching: 00:04:45
+Overall time: 00:04:45
+
+real	4m44.793s
+user	13m42.118s
+sys	2m49.941s
+
+
+############
+# 4, split
+##############
+/Volumes/My_Book/20130206_Huiming_smallRNA_Seq/small_RNA_data_from_SH_server/downstream_with_without_structural_RNA/OR_15:23:07_N=561$ 
+time perl  /Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/step1_split_bam2_twoBam_add_NH_tag_v0.0.1.pl col0_Heng_clean_sRNA_bowtie1.0.0_v0k100.bam . col0_Heng_clean_sRNA_bowtie1.0.0_v0k100
+[samopen] SAM header is present: 7 sequences.
+[samopen] SAM header is present: 7 sequences.
+[samopen] SAM header is present: 7 sequences.
+[samopen] SAM header is present: 7 sequences.
+[sam_read1] reference 'ID:Bowtie	VN:1.0.0	CL:"bowtie -t -p 3 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f - -S"
+' is recognized as '*'.
+[main_samview] truncated file.
+
+real	4m46.604s
+user	6m37.785s
+sys	0m9.071s
+
+time samtools view  col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_OutOf_18_30.bam | cut -f 1 | uniq | wc -l
+   10212
+
+
+time perl  /Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/step1_split_bam2_twoBam_add_NH_tag_v0.0.1.pl dtf1_clean_sRNA_bowtie1.0.0_v0k100.bam . dtf1_clean_sRNA_bowtie1.0.0_v0k100
+[samopen] SAM header is present: 7 sequences.
+[samopen] SAM header is present: 7 sequences.
+[samopen] SAM header is present: 7 sequences.
+[samopen] SAM header is present: 7 sequences.
+[sam_read1] reference 'ID:Bowtie	VN:1.0.0	CL:"bowtie -t -p 3 -v 0 -k 100 /Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/BowtieIndex/genome -f - -S"
+' is recognized as '*'.
+[main_samview] truncated file.
+
+real	4m5.470s
+user	5m45.981s
+sys	0m7.800s
+

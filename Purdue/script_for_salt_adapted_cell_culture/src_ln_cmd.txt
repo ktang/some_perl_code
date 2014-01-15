@@ -1,0 +1,16 @@
+mv /Users/tang58/misc/Zhu_Xiaohong/Mar27_filter_MAPQ20/src/*pl 1
+ln -s $(pwd)/1/*pl /Users/tang58/misc/Zhu_Xiaohong/Mar27_filter_MAPQ20/src/
+
+mv /Users/tang58/misc/Zhu_Xiaohong/Mar27_filter_MAPQ20/src/513_downstream/*pl 513_downstream/
+
+
+mv /Users/tang58/misc/Zhu_Xiaohong/downstream/src/*pl 2
+ln -s $(pwd)/2/*pl  /Users/tang58/misc/Zhu_Xiaohong/downstream/src
+
+mv /Users/tang58/misc/Zhu_Xiaohong/Mar27_filter_MAPQ20/mpileup/513loci_downstream/self_percentage_cutoff_Jun13/src/*pl 3
+ln -s $(pwd)/3/*pl  /Users/tang58/misc/Zhu_Xiaohong/Mar27_filter_MAPQ20/mpileup/513loci_downstream/self_percentage_cutoff_Jun13/src
+
+
+mv /Users/tang58/misc/Zhu_Xiaohong/Jun11_start_from_4056loci/src/*pl 4
+ln -s $(pwd)/4/*pl  /Users/tang58/misc/Zhu_Xiaohong/Jun11_start_from_4056loci/src
+

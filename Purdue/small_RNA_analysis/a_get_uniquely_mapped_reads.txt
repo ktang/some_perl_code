@@ -1,0 +1,4 @@
+time samtools view -h Col0_sRNA_CF_clean_bowtie_v0k100_NotOver_structural_RNA_sorted.bam | perl -lane 'print if(/^@/ or $F[-1] eq "NH:i:1")' |  samtools view -b -S -  > uniq_mapped/Col0_CF_sRNA_NotOver_structural_RNA_sorted_uniq.bam
+time samtools view -h dtf1_sRNA_CF_clean_bowtie_v0k100_NotOver_structural_RNA_sorted.bam | perl -lane 'print if(/^@/ or $F[-1] eq "NH:i:1")' |  samtools view -b -S -  > uniq_mapped/dtf1_CFrdm16_sRNA_NotOver_structural_RNA_sorted_uniq.bam
+time samtools view -h rdm16_2_55_sRNA_CF_clean_bowtie_v0k100_NotOver_structural_RNA_sorted.bam | perl -lane 'print if(/^@/ or $F[-1] eq "NH:i:1")' |  samtools view -b -S -  > uniq_mapped/rdm16_2_55_sRNA_CF_NotOver_structural_RNA_sorted_uniq.bam
+

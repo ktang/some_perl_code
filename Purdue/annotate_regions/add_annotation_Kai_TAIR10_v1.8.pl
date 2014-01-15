@@ -1,0 +1,1 @@
+/Users/tang58/Weiqiang_idm1_1_Nature_paper/add_annotation_Kai_TAIR10_v1.8.pl

@@ -1,0 +1,9 @@
+<html>
+ <head>
+  <title>My first Perl CGI script</title>
+ </head>
+ <body>
+  <b>Hello, World!</b><br />
+  This is <b>very</b> interesting!
+ </body>
+</html>

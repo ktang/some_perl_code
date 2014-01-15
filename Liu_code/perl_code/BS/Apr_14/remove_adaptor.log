@@ -1,0 +1,84 @@
+Trim 3' adaptor for file s_2_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+7166366	333841	179466	220436	86521	375150	511976	1938007	4296733	12477453
+Number of short seqs (< 20 nt): 287037 Number of good seqs: 27298912
+>= 9nt: 6930287 <9nt: 7891172 no adaptor: 12477453
+Trim 3' adaptor for file s_2_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+7818784	221897	219492	216854	184468	182253	291841	281805	8344038	8882104
+Number of short seqs (< 20 nt): 158887 Number of good seqs: 26484649
+>= 9nt: 7710134 <9nt: 9892411 no adaptor: 8882104
+Trim 3' adaptor for file s_3_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+6028844	281885	242819	194789	98013	477901	807295	3232309	7962969	21841008
+Number of short seqs (< 20 nt): 183698 Number of good seqs: 40984134
+>= 9nt: 5940213 <9nt: 13202913 no adaptor: 21841008
+Trim 3' adaptor for file s_3_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+6458910	194235	231927	198210	168392	179715	306517	329836	15527934	16258583
+Number of short seqs (< 20 nt): 178186 Number of good seqs: 39676073
+>= 9nt: 6379077 <9nt: 17038413 no adaptor: 16258583
+Trim 3' adaptor for file s_5_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+5458037	250239	220521	200296	118549	448357	694083	2806479	6685000	18816084
+Number of short seqs (< 20 nt): 91454 Number of good seqs: 35606191
+>= 9nt: 5424081 <9nt: 11366026 no adaptor: 18816084
+Trim 3' adaptor for file s_5_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+5633701	193208	205976	213045	179885	186455	276582	306189	13419985	14121577
+Number of short seqs (< 20 nt): 89276 Number of good seqs: 34647327
+>= 9nt: 5607110 <9nt: 14918640 no adaptor: 14121577
+Trim 3' adaptor for file s_6_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+11030625	261253	304379	241145	152456	368394	766959	2558000	6401643	16308022
+Number of short seqs (< 20 nt): 3236357 Number of good seqs: 35156519
+>= 9nt: 8067466 <9nt: 10781031 no adaptor: 16308022
+Trim 3' adaptor for file s_6_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+9712155	197938	343482	222698	192245	197744	350235	422660	11696136	12844226
+Number of short seqs (< 20 nt): 2639349 Number of good seqs: 33540170
+>= 9nt: 7371640 <9nt: 13324304 no adaptor: 12844226
+Trim 3' adaptor for file s_7_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+15063362	259205	327291	222195	154302	264048	685511	2012314	4901964	12542343
+Number of short seqs (< 20 nt): 5869715 Number of good seqs: 30562820
+>= 9nt: 9515687 <9nt: 8504790 no adaptor: 12542343
+Trim 3' adaptor for file s_7_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+13348462	190380	593681	205890	179690	186265	384700	452650	8904731	10279939
+Number of short seqs (< 20 nt): 5288545 Number of good seqs: 29437843
+>= 9nt: 8436607 <9nt: 10721297 no adaptor: 10279939
+Trim 3' adaptor for file s_8_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+7154890	145258	240922	275290	102040	272852	513732	2074589	4868986	13359506
+Number of short seqs (< 20 nt): 2638521 Number of good seqs: 26369544
+>= 9nt: 4862979 <9nt: 8147059 no adaptor: 13359506
+Trim 3' adaptor for file s_8_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+6667437	120910	232068	231640	149720	126001	232763	287659	9194185	9879888
+Number of short seqs (< 20 nt): 2096836 Number of good seqs: 25025435
+>= 9nt: 4796152 <9nt: 10349395 no adaptor: 9879888
+Trim 3' adaptor for file s_1_1_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+8005955	441836	275633	292694	128503	519490	801917	3004948	7041309	19207986
+Number of short seqs (< 20 nt): 251659 Number of good seqs: 39468612
+>= 9nt: 7851531 <9nt: 12409095 no adaptor: 19207986
+Trim 3' adaptor for file s_1_2_sequence_trimmed.fa
+Number of seqs that are trimmed by different length:
+>=9	8	7	6	5	4	3	2	1	0
+8457234	284351	302470	288734	245540	237126	402656	397703	13537890	14518051
+Number of short seqs (< 20 nt): 262802 Number of good seqs: 38408953
+>= 9nt: 8365851 <9nt: 15525051 no adaptor: 14518051

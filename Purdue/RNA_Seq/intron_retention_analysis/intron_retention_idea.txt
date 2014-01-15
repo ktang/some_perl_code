@@ -1,0 +1,2 @@
+1, to get clue of intron with reads covered, use intron gff file and samtools depth 
+foreach intron get depth

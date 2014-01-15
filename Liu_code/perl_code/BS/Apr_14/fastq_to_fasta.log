@@ -1,0 +1,28 @@
+In file JKZ_16_zdp_lane2/s_2_1_sequence.txt.trimmed:
+Number of good seqs: 27585949, num_short (less than 20 nt): 613116, num_contain_N: 0
+In file JKZ_16_zdp_lane2/s_2_2_sequence.txt.trimmed:
+Number of good seqs: 26643536, num_short (less than 20 nt): 1555529, num_contain_N: 0
+In file JKZ_17_rdd_lane3/s_3_1_sequence.txt.trimmed:
+Number of good seqs: 41167832, num_short (less than 20 nt): 1266816, num_contain_N: 0
+In file JKZ_17_rdd_lane3/s_3_2_sequence.txt.trimmed:
+Number of good seqs: 39854259, num_short (less than 20 nt): 2580389, num_contain_N: 0
+In file JKZ_18_rdd_lane5/s_5_1_sequence.txt.trimmed:
+Number of good seqs: 35697645, num_short (less than 20 nt): 772964, num_contain_N: 0
+In file JKZ_18_rdd_lane5/s_5_2_sequence.txt.trimmed:
+Number of good seqs: 34736603, num_short (less than 20 nt): 1734006, num_contain_N: 0
+In file JKZ_19_C24_Luc_lane6/s_6_1_sequence.txt.trimmed:
+Number of good seqs: 38392876, num_short (less than 20 nt): 1239484, num_contain_N: 0
+In file JKZ_19_C24_Luc_lane6/s_6_2_sequence.txt.trimmed:
+Number of good seqs: 36179519, num_short (less than 20 nt): 3452841, num_contain_N: 0
+In file JKZ_20_C24_Luc_lane7/s_7_1_sequence.txt.trimmed:
+Number of good seqs: 36432535, num_short (less than 20 nt): 1108287, num_contain_N: 0
+In file JKZ_20_C24_Luc_lane7/s_7_2_sequence.txt.trimmed:
+Number of good seqs: 34726388, num_short (less than 20 nt): 2814434, num_contain_N: 0
+In file JKZ_21_ros1_1_lane8/s_8_1_sequence.txt.trimmed:
+Number of good seqs: 29008065, num_short (less than 20 nt): 1532098, num_contain_N: 0
+In file JKZ_21_ros1_1_lane8/s_8_2_sequence.txt.trimmed:
+Number of good seqs: 27122271, num_short (less than 20 nt): 3417892, num_contain_N: 0
+In file JKZ_15_zdp_lane1/s_1_1_sequence.txt.trimmed:
+Number of good seqs: 39720271, num_short (less than 20 nt): 1652870, num_contain_N: 0
+In file JKZ_15_zdp_lane1/s_1_2_sequence.txt.trimmed:
+Number of good seqs: 38671755, num_short (less than 20 nt): 2701386, num_contain_N: 0

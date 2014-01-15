@@ -1,0 +1,37 @@
+##############
+#	learn from Zeng, Liang
+#####################
+
+die "useage:perl $0 <target file> <reference file>\n" unless (@ARGV==2);
+if($ARGV[0]=~/.gz/){
+    open A, "gzip -dc $ARGV[0] |" or die "can not open $ARGV[0]\n$!";
+}
+else{
+    open A, "<$ARGV[0]" or die "can not open $ARGV[0]\n$!";
+}
+
+
+&showLog("start");
+&showLog("read sites finished!");
+
+sub showLog {
+        my ($info) = @_;
+        my @times = localtime; # sec, min, hour, day, month, year
+        print STDERR sprintf("[%d-%02d-%02d %02d:%02d:%02d] %s\n", $times[5] + 1900, $times[4] + 1, $times[3], $times[2], $times[1], $times[0], $info);
+}
+
+
+
+open A,$ARGV[0];
+$/=">";
+#The input record separator, newline by default. This influences Perl's idea of what a "line" is. 
+<A>;
+my %info;
+while(<A>){
+    chomp;
+    my @a=split /\n+/;
+    my @b=split /\s+/,$a[0];
+    my $len=length $a[1];
+    print ">$b[0]_$b[1]_$len\n$a[1]\n";
+}
+close A;

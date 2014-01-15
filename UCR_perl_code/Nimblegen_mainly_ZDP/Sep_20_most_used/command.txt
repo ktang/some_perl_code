@@ -1,0 +1,229 @@
+wireless-169-235-34-173:perl_code kaitang$ time ./check_exact_bed_bed.pl ../TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks.bed ~/Desktop/Nimblegen/two_list_for_ZDP_wrong_analysis/send/labeled_ZDP_peaks_sorted.bed 
+chr1	0010930443	0010930907
+chr5	0004324383	0004325550
+chr5	0011845436	0011846267
+chr5	0012967495	0012968319
+../TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks.bed contains 436+1 line
+/Users/kaitang/Desktop/Nimblegen/two_list_for_ZDP_wrong_analysis/send/labeled_ZDP_peaks_sorted.bed contains 432+1 line
+the same is 433
+
+real	0m0.185s
+user	0m0.174s
+sys	0m0.008s
+wireless-169-235-34-173:perl_code kaitang$ pwd
+/Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/perl_code
+
+
+wireless-169-235-34-173:perl_code kaitang$ time ./check_exact_bed_bed.pl ../TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed ~/Desktop/Nimblegen/two_list_for_ZDP_wrong_analysis/send/hypothesis_ZDP_peaks_sorted.bed 
+../TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed contains 189+1 line
+/Users/kaitang/Desktop/Nimblegen/two_list_for_ZDP_wrong_analysis/send/hypothesis_ZDP_peaks_sorted.bed contains 189+1 line
+the same is 190
+
+
+517  time ./remove_bad_peaks.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/15_50541502_P2_nimblegen_method_sorted.sgr > ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged_remove_neg.bed
+
+
+    519  time ./remove_bad_peaks.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/66_50446602_Z1_nimblegen_method_sorted.sgr > ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks_remove_neg.bed
+
+time ~/Desktop/Nimblegen/perl_code/remove_bad_peaks.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/15_50541502_P2_nimblegen_method_sorted.sgr > ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged_remove_neg.bed
+
+
+/Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/data/perl_code
+
+
+time ./remove_bad_peaks_trimmean.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/66_50446602_Z1_nimblegen_method_sorted.sgr > ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks_remove_neg_Trimmean.bed
+
+
+real	0m17.871s
+
+
+time ./remove_bad_peaks_trimmean.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/15_50541502_P2_nimblegen_method_sorted.sgr > ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged_remove_neg_useTrimmean.bed
+
+
+############# 
+#         hypothesis
+wireless-169-235-42-75:perl_code kaitang$ time ./remove_bad_peaks_trimmean_v2.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/15_50541502_P2_nimblegen_method_sorted.sgr 1 |wc -l
+       6
+
+real	0m17.774s
+user	0m16.832s
+sys	0m0.876s
+
+
+wireless-169-235-47-164:perl_code kaitang$ time ./remove_bad_peaks_trimmean_v3.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_hypothesis/sorted_myout_L2L3_merged.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/15_50541502_P2_nimblegen_method_sorted.sgr 0.2 hypothesis > ~/Desktop/Nimblegen/Oct_6_list_cutoff/hypothesis_ZDP_peaks_trimmean_02.txt
+
+
+wireless-169-235-47-164:perl_code kaitang$ time ./remove_bad_peaks_trimmean_v3.pl ~/Desktop/Nimblegen/Sep_20_new_analysis/TAMALg_analysis/TAMALg_newpara_ZDP_labeled/66_16_as_labeled_meam_minusC2_sorted_peaks.bed ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/66_50446602_Z1_nimblegen_method_sorted.sgr ~/Desktop/Nimblegen/sgr_data/Ringo_nimblegen_method/ten_individual/sorted/16_50471602_Z2_nimblegen_method_sorted.sgr 1.4 label > ~/Desktop/Nimblegen/Oct_6_list_cutoff/label_ZDP_peaks_trimmean_1.4.txt
+
+
+
+
+
+
+
+
+#############################################################################################################################################
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/hypothesis_ZDP_peaks_trimmean_ 0.5 0.3 0.1 
+hypothesis_ZDP_peaks_trimmean_02.bed         hypothesis_ZDP_peaks_trimmean_02_sorted.bed  hypothesis_ZDP_peaks_trimmean_1.bed          hypothesis_ZDP_peaks_trimmean_1_sorted.bed
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/hypothesis_ZDP_peaks_trimmean_02_sorted.bed 0.5 0.3 0.1 |wc -l
+       2
+
+real	0m41.926s
+user	0m40.286s
+sys	0m1.626s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.5 0.3 0.1 |wc -l
+       4
+
+real	0m42.171s
+user	0m40.476s
+sys	0m1.684s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.3 0.3 0.1 |wc -l
+       6
+
+real	0m42.181s
+user	0m40.477s
+sys	0m1.694s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.3 0.1 0.05 |wc -l
+      10
+
+real	0m42.196s
+user	0m40.449s
+sys	0m1.744s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.1 0.1 0.05 |wc -l
+      16
+
+real	0m42.233s
+user	0m40.456s
+sys	0m1.773s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0 0 0 |wc -l
+      76
+
+real	0m42.248s
+user	0m40.461s
+sys	0m1.782s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0 0 0 |wc -l
+      11
+
+real	0m42.306s
+user	0m40.500s
+sys	0m1.779s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0 0 0 |wc -l
+syntax error at ./verify_regions_with_Ecker_data.pl line 31, near ")
+
+my "
+Global symbol "$chr_file" requires explicit package name at ./verify_regions_with_Ecker_data.pl line 31.
+Global symbol "$chr_file" requires explicit package name at ./verify_regions_with_Ecker_data.pl line 37.
+Execution of ./verify_regions_with_Ecker_data.pl aborted due to compilation errors.
+       0
+
+real	0m0.107s
+user	0m0.084s
+sys	0m0.020s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0 0 0 |wc -l
+./verify_regions_with_Ecker_data.pl <peak_bed_file> <cutoff_cg> <cutoff_chg> <cutoff_chh> <and_or> at ./verify_regions_with_Ecker_data.pl line 22.
+       0
+
+real	0m0.105s
+user	0m0.084s
+sys	0m0.018s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0 0 0 and |wc -l
+      11
+
+real	0m42.512s
+user	0m40.723s
+sys	0m1.784s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0 0 0 or |wc -l
+      76
+
+real	0m42.510s
+user	0m40.699s
+sys	0m1.804s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.05 0.05 0.02 or |wc -l
+      28
+
+real	0m42.353s
+user	0m40.566s
+sys	0m1.772s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.01 0.01 0.01 or |wc -l
+      36
+
+real	0m42.364s
+user	0m40.555s
+sys	0m1.796s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl ~/Desktop/Nimblegen/Penterman_data/Penterman_loci_sorted.bed 0.01 0.01 0.01 or |wc -l
+     110
+
+real	0m42.477s
+user	0m40.697s
+sys	0m1.766s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl ~/Desktop/Nimblegen/Penterman_data/Penterman_loci_sorted.bed 0.5 0.3 0.05 or |wc -l
+      17
+
+real	0m42.493s
+user	0m40.690s
+sys	0m1.794s
+wireless-169-235-38-134:perl_code kaitang$ wc -l ~/Desktop/Nimblegen/Penterman_data/Penterman_loci_sorted.bed
+     179 /Users/kaitang/Desktop/Nimblegen/Penterman_data/Penterman_loci_sorted.bed
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl ~/Desktop/Nimblegen/Penterman_data/Penterman_loci_sorted.bed 0 0 0 and |wc -l
+      99
+
+real	0m42.551s
+user	0m40.767s
+sys	0m1.770s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/label_ZDP_peaks_trimmean_1.4_sorted.bed 0.5 0.3 0.05 or |wc -l
+       4
+
+real	0m42.401s
+user	0m40.581s
+sys	0m1.808s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/hypothesis_ZDP_peaks_trimmean_ 0.5 0.3 0.05 or |wc -l
+hypothesis_ZDP_peaks_trimmean_02.bed         hypothesis_ZDP_peaks_trimmean_02_sorted.bed  hypothesis_ZDP_peaks_trimmean_1.bed          hypothesis_ZDP_peaks_trimmean_1_sorted.bed
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/hypothesis_ZDP_peaks_trimmean_02_sorted.bed 0.5 0.3 0.05 or |wc -l
+       2
+
+real	0m41.802s
+user	0m40.010s
+sys	0m1.779s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Oct_6_list_cutoff/bed/hypothesis_ZDP_peaks_trimmean_02_sorted.bed 0 0 0 and |wc -l
+      36
+
+
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0 0 0 and |wc -l
+     688
+
+real	0m43.865s
+user	0m40.845s
+sys	0m1.820s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0,5 0.3 0.05 or |wc -l
+^C
+
+real	0m3.171s
+user	0m2.143s
+sys	0m0.995s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0.5 0.3 0.05 or |wc -l
+     140
+
+real	0m43.493s
+user	0m40.864s
+sys	0m1.769s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0.05 0.05 0.01 and |wc -l
+      56
+
+real	0m43.316s
+user	0m40.843s
+sys	0m1.810s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0.0000000001 0.00000000001 0.0000000001 and |wc -l
+      64
+
+real	0m43.309s
+user	0m40.702s
+sys	0m1.859s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0.05 0.05 0.01 or |wc -l     705
+
+real	0m43.471s
+user	0m40.851s
+sys	0m1.875s
+wireless-169-235-38-134:perl_code kaitang$ time ./verify_regions_with_Ecker_data.pl /Users/kaitang/Desktop/Nimblegen/Sep_20_new_analysis/result/rdd/rdd_peaks_T02P0001S50.bed 0.1 0.1 0.1 or |wc -l
+     592
+
+
