@@ -385,6 +385,53 @@ sub check_hash_sum{
 	}
 }
 
+#Kai_Module::read_list_and_recored_pos($input_list_file, \%h_pos_in_list);
+
+sub read_list_and_recored_pos{
+	
+}
+
+#Kai_Module::cal_meth_level ( \@wmC_print, \%seqed_mC_h, \%seqed_dep_h, $i);
+#Kai_Module::cal_meth_level ( \@mmC_print, \%seqed_per_h, \%covered_C_num_h, $i);
+#Kai_Module::cal_meth_level ( \@fmC_print, \%seqed_isMeth_h, \%covered_C_num_h, $i);
+
+sub cal_meth_level{
+	my ($res_ref, $numerator_ref, $denominator_ref , $region_ind) = @_;
+	my @types = ("CG", "CHG", "CHH", "C" );
+	for my $i (0..$#types){
+		my $t = $types[$i];
+		if (defined $denominator_ref->{$region_ind}->{$t}) {
+			#$ref_a->[$i] = $denominator_ref->{$region_ind}->{$t};
+		}
+		
+	}
+}
+
+#	Kai_Module::cal_covered_per( \@covered_per_print, \@covered_C_num_print, \@C_num_print  );
+sub cal_covered_per{
+	my ( $res_ref, $numerator_ref, $denominator_ref ) = @_;
+	my $last_index = scalar(@{$res_ref}) - 1;
+	for my $i(0..$last_index){
+		next if ( $denominator_ref->[$i] == 0);
+		$res_ref->[$i] = sprintf ("%.2f", 100 * ($numerator_ref->[$i] ) / ( $denominator_ref->[$i] ) );
+	}
+}
+
+#fill_C_num(\@C_num_print, \%C_num_h, $i);
+sub fill_C_num{
+	my ($ref_a, $ref_h, $region_ind) = @_;
+	my @types = ("CG", "CHG", "CHH", "C" );
+
+	for my $i (0..$#types){
+		my $t = $types[$i];
+		if (defined $ref_h->{$region_ind}->{$t}) {
+			$ref_a->[$i] = $ref_h->{$region_ind}->{$t};
+		}
+		
+	}
+}
+
+
 1;
 __END__
 
