@@ -270,7 +270,11 @@ sub determine_var{
 		}
 		
 		if ( length ($char)  == 1) {
-			$records{ uc($char) } ++;
+			if ( $char =~ /[nN]/ ){
+				$records{","}++;
+			}else{
+			    $records{ uc($char) } ++;
+			}
 			next;
 		}
 		
@@ -385,10 +389,37 @@ sub check_hash_sum{
 	}
 }
 
-#Kai_Module::read_list_and_recored_pos($input_list_file, \%h_pos_in_list);
-
-sub read_list_and_recored_pos{
+#Kai_Module::read_list_recored_pos_and_list($input_list_file, \%pos_in_list_h, \@input_list, $chr_col );
+sub read_list_recored_pos_and_list{
+	my ($file, $pos_h, $list_a_ref, $chr_col) = @_;
+	die unless (-e $file);
+	open(IN , "$file") or die "cannot open $file";
 	
+	my $i = -1;
+	
+	while ( <IN> ) {
+		$i++;
+		chomp;
+		$list_a_ref->[$i] = $_;
+		next unless ($i>=1);
+		my @a = split "\t";
+		
+		my ($chr, $s, $e ) = (@a[($chr_col - 1)..($chr_col + 1)]);
+		$chr = simple_chr($chr);
+		for my $pos( $s..$e){
+			if (defined $pos_h->{$chr}->[$pos] ) {
+				$pos_h->{$chr}->[$pos]  = $pos_h->{$chr}->[$pos]  . "," . $i;
+			}else{
+				$pos_h->{$chr}->[$pos]  = $i;
+			}
+			
+		}
+	}
+	
+	
+	
+	
+	close IN;
 }
 
 #Kai_Module::cal_meth_level ( \@wmC_print, \%seqed_mC_h, \%seqed_dep_h, $i);
@@ -402,6 +433,19 @@ sub cal_meth_level{
 		my $t = $types[$i];
 		if (defined $denominator_ref->{$region_ind}->{$t}) {
 			#$ref_a->[$i] = $denominator_ref->{$region_ind}->{$t};
+			my $x = 0;
+			if (defined $numerator_ref->{$region_ind}->{$t} ){
+				$x = $numerator_ref->{$region_ind}->{$t}
+			}
+			
+			my $y = $denominator_ref->{$region_ind}->{$t};
+			my $formula = "$x/$y";
+			#Formula
+			my $val = eval sprintf("%.2f", 100* $x/$y);
+			$res_ref->[2*$i] = $formula;
+			$res_ref->[2*$i + 1 ] = $val;
+			die if $val > 100.01;
+			
 		}
 		
 	}
@@ -413,7 +457,8 @@ sub cal_covered_per{
 	my $last_index = scalar(@{$res_ref}) - 1;
 	for my $i(0..$last_index){
 		next if ( $denominator_ref->[$i] == 0);
-		$res_ref->[$i] = sprintf ("%.2f", 100 * ($numerator_ref->[$i] ) / ( $denominator_ref->[$i] ) );
+		$res_ref->[$i] = eval sprintf ("%.2f", 100 * ($numerator_ref->[$i] ) / ( $denominator_ref->[$i] ) );
+		die if $res_ref->[$i] > 100.01;
 	}
 }
 
@@ -432,8 +477,54 @@ sub fill_C_num{
 }
 
 
+#Kai_Module::cal_win_num( \%num_win, \%chr_len, $win_size, $sliding_bp);
+
+sub cal_win_num{
+	my ($ref_num, $ref_len, $win_size_sub,  $sliding_bp_sub) = @_;
+	
+	foreach my $k (keys %{$ref_len}){
+		my $len = $ref_len->{$k};
+		my $n = int ( ( $len - 1 ) / $sliding_bp_sub ) + 1;
+		$ref_num->{$k} = $n;
+	}
+}
+
+#Kai_Module::hash_cumsum_SE ( \%cumsum_win,  \%num_win );
+
+sub hash_cumsum_SE{
+	my ($ref_res, $ref_in) = @_;
+	my $sum = 0;
+	foreach my $k(sort keys %{$ref_in}){
+		my $s = $sum+1;
+		my $e = $sum + $ref_in->{$k};
+		$ref_res-> {$k} =  [ $s, $e];
+		$sum += $ref_in->{$k};
+	}
+}
+
+#my $ind_of_maximum = Kai_Module::get_ind_of_maximum(\@pers);
+sub get_ind_of_maximum{
+	my ($ref) = @_;
+	my $last_index = scalar (@{$ref}) - 1;
+	
+	my $ind = 0;
+	my $max = $ref->[$ind];
+	for my $i(1..$last_index){
+		if ( $ref->[$i] > $max ) {
+			$max =  $ref->[$i];
+			$ind = $i;
+		}
+	}
+	return ($ind);
+}
+
+
+
 1;
 __END__
+
+BEGIN { push @INC, '/Users/tang58/scripts_all/perl_code/Modules' }
+use Kai_Module;
 
 if ($debug) {
 	print STDERR , "\n";

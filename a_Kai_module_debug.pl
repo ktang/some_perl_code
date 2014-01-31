@@ -12,6 +12,12 @@ use utf8;#可以吗？
 use strict;
 use File::Spec;
 
+my $x = "5.88,5.88,11.76,312";
+
+my @a = split ",", $x;
+
+print Kai_Module::get_ind_of_maximum(\@a), "\n";
+
 #print Kai_Module::round( 10.8), "\n\n";
 #print Kai_Module::simple_chr("chr4"), "\n\n";
 
@@ -26,7 +32,6 @@ die $usage unless (@ARGV == 3);
 my $dep = shift or die;
 my $pileup  = shift or die;
 my $qual= shift or die;
-=cut
 my $usage = "$0 \n <input>\n\n";
 my $input = shift or die;
 
@@ -39,6 +44,7 @@ while (<IN>) {
 
 }
 
+=cut
 
 #my @a = Kai_Module::split_pileup(14, ",,...-2TA^\$.-4TATA*.-2TA.-2TA,-2ta.-2TA.-2TA,-2ta.-2TA", "HCI=DA!DD?DD\@D");
 #print STDERR join("\t", @a), "\n";
