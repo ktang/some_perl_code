@@ -4,9 +4,11 @@
 use strict;
 use Bio::SeqIO;
 
+print STDERR "STDOUT \n\n";
+
 # /Users/tang58/DataBase/miRBase/Release_19/ath_mature_r19.fa
 my $ten_million = 10000000;
-my $usage = "$0 <mature miRNAs> <format> <clean reads in lib1> [<lib2>.....] ";
+my $usage = "$0\n <mature miRNAs> <format> <clean reads in lib1> [<lib2>.....] \n\n ";
 die $usage unless(@ARGV >= 3);
 my $miRNA_file = shift or die;
 my $format = shift or die;
@@ -29,7 +31,8 @@ $seqin->close;
 my %miRNA_counts;
 my %miRNA_normal; # normalized to TPTM
 foreach my $file(@ARGV){
-	my $in = Bio::SeqIO->new(-file=>$file, -format=> $format );
+	#my $in = Bio::SeqIO->new(-file=>$file, -format=> $format );
+	my $in = Bio::SeqIO->new(-file=>"zcat $file|", -format=> $format );
 	my $total = 0;
 	while(my $seq = $in->next_seq){
 		if(defined $miRNAs{$seq->seq}){

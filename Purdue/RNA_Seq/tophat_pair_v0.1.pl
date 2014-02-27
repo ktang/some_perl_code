@@ -19,7 +19,7 @@ my $debug = 0;
 my %Phred_h = ( 33=> " ", 64=>"--phred64-quals");
 
 
-my $p = 8;
+my $p = 3;
 my $r = 200;
 my $mode_flag = "--b2-very-sensitive";
 

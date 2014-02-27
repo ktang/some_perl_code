@@ -25,7 +25,7 @@ opendir(DIR, $indir) or die "dir";
 
 #my @files = grep /_1.fq.gz/, readdir DIR;
 
-my @dirs = grep /RNA_seq/ ,  readdir DIR;
+my @dirs = grep /mRNA_seq/i ,  readdir DIR;
 
 closedir DIR;
 
@@ -37,10 +37,10 @@ print STDERR join("\n", @dirs), "\n\n";
 
 #foreach my $in1(@files){
 foreach my $dir (@dirs){
-	if($dir =~ /(\S+)_RNA_seq/){
+#	if($dir =~ /(\S+)_RNA_seq/){
 		
-		my $pre = $1;
-		
+		#my $pre = $1;
+		my $pre = $dir;
 #		my $in2 = $pre . "_l1_2.fq.gz";
 		
 		my $sub_outdir = File::Spec->catfile($outdir, $pre . "_thout" );
@@ -55,7 +55,7 @@ foreach my $dir (@dirs){
 		if(!$debug){	
 			`$cmd`;
 		}
-	}
+#	}
 }
 
 exit;

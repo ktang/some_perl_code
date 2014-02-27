@@ -34,23 +34,25 @@ die if(-e $output);
 open(OUT, ">$output") or die "cannot open $output: $!";
 
 my $h = <IN>;
-print OUT join("\t", ("chr", "start", "end") ), "\n";
+print OUT join("\t", ("chr", "start", "end", "strand", "ID") ), "\n";
 
 my ($chr, $s, $e) ;
 
+my $id = 0;
 while (<IN>) {
 	chomp;
 	my @a=split "\t";
 	next if ($a[0] =~ /t/);
 	#if ($a[0] =~ /(\d):(\d+)-(\d+)/) {
 	#($chr, $s, $e) = ($1,$2,$3);
-	#$chr = "chr" . $chr; 
+	#$chr = "chr" . $chr;
+	$id++;
 	($chr, $s, $e) = @a[0..2];
 	if ( $chr_N eq "chr") {
 		$chr = "chr". $chr;
 	}
 	
-	print OUT join ("\t", ($chr, $s, $e) ),"\n";
+	print OUT join ("\t", ($chr, $s, $e, "+", $id) ),"\n";
 	#}else{
 	#	die $a[0];
 	#}

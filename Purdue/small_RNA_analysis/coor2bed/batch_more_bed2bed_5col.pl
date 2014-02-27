@@ -10,7 +10,7 @@ use File::Spec;
 
 my $debug = 0;
 
-my $script = "/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/coor2bed/more_bed2bed_3col_v0.0.pl";
+my $script = "/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/coor2bed/more_bed2bed_5col.pl";
 
 die unless (-e $script);
 
@@ -43,7 +43,7 @@ foreach my $file (@files){
 		my $pre = $1;
 		my $input = File::Spec->catfile($indir, $file);
 		die unless (-e $input);
-		my $output = File::Spec->catfile($outdir, $pre . "_bed.txt");
+		my $output = File::Spec->catfile($outdir, $pre . "_coordinate_bed.txt");
 		my $cmd = "perl $script $input $output $chr_N";
 		print STDERR $cmd, "\n\n";
 		if (!$debug) {

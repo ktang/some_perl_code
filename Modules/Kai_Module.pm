@@ -3,6 +3,8 @@ package Kai_Module;
 
 use strict;
 use warnings;
+use File::Spec;
+
 use Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
@@ -18,6 +20,7 @@ $VERSION     = 1.0.0;
 
 
 #my %chr_len = ("chr1"=>30427671, "chr2"=>19698289, "chr3"=>23459830, "chr4"=>18585056, "chr5"=>26975502);
+#		$res_ref->[$i] = eval sprintf ("%.2f", 100 * ($numerator_ref->[$i] ) / ( $denominator_ref->[$i] ) );
 
 
 =head
@@ -50,6 +53,30 @@ sub round {
     #return int($number + .5);
     return int($number + .5 * ($number <=> 0)); # take care of negative numbers too
 
+}
+
+sub get_sum{
+	my @tmp = @_;
+	my $s = 0;
+	foreach my $i(@tmp){
+		$s+=$i;
+	}
+	return $s;
+}
+
+sub add_chr{
+	my ($chr) = @_;
+	if ($chr =~ /^\d+$/) {
+		return "Chr" . $chr;
+	}elsif($chr eq "Mt" ){
+		return "mitochondria";
+	}elsif( $chr eq "Pt"){
+		return "chloroplast"
+	}else{
+		die "wrong chr from add_chr: $chr\n\n";
+	}
+	
+	#chloroplast, mitochondria
 }
 
 # split_pileup( $dep, $pileup_str, $qual_str )
@@ -519,6 +546,226 @@ sub get_ind_of_maximum{
 }
 
 
+sub read_wig_hash{
+	my ($wig_input, $hash_ref) = @_;
+	print STDERR "read $wig_input...\t";
+	open (IN, $wig_input) or die "cannot open $wig_input:$!";
+	my $chr = 0;
+	while (<IN>){
+		chomp;
+		next if (/^track/);
+		if (/variableStep\s+chrom=(\w+)/){
+			$chr = simple_chr( $1 );
+			next;
+		}
+		
+		my ($pos, $val) = split /\t/;
+		$hash_ref->{$chr}->{$pos} = $val;
+	}	
+	close(IN);
+	print STDERR "DONE\n";
+}
+
+sub read_wig_array{
+	my ($wig_input, $hash_ref) = @_;
+	print STDERR "read $wig_input...\t";
+	open (IN, $wig_input) or die "cannot open $wig_input:$!";
+	my $chr = 0;
+	while (<IN>){
+		chomp;
+		next if (/^track/);
+		if (/variableStep\s+chrom=(\w+)/){
+			$chr = simple_chr( $1 );
+			next;
+		}
+		
+		my ($pos, $val) = split /\t/;
+		$hash_ref->{$chr}->[$pos] = $val;
+	}	
+	close(IN);
+	print STDERR "DONE\n";
+}
+
+#Feb 17, 2014
+# for step1_extract_ChIP_read_num_pairs_using_featureCounts.pl
+# input a list, output SAF file format for featureCounts
+#read_list_and_get_sliding_interval ( $input, $type, $SAF_file, $bin_size, $sliding_size, $half_flanking_bin_num );
+
+sub read_list_and_get_sliding_interval{
+	my ( $input, $type, $output, $bin_size, $sliding_size, $half_flanking_bin_num ) = @_;
+	open(IN, $input) or die "cannot open input";
+	open(OUT, ">>$output") or die"cannot output";
+
+	my $ID_index = 0;
+
+	while (<IN>) {
+		chomp;
+		my @a = split "\t";
+		next if ($a[0] =~ /(^coor|^#?chr$)/i );
+		my ($chr, $start, $end);
+		
+	
+	#	$ID_index++;
+	
+		if ($type eq "bed") {
+			($chr, $start, $end) = @a[0..2];
+			$chr = simple_chr($chr);
+		}elsif($type eq "coor"){
+			if ($a[0] =~ /(\S+):(\d+)-(\d+)/) {
+				($chr, $start, $end) =  ($1, $2, $3);
+				$chr = simple_chr($chr);
+			}
+		}else{
+			die "wrong type\n\n";
+		}
+	
+		my $mid_point = int ( ($start + $end)/2);
+		my $first_start = $mid_point - int( ($bin_size - 1) /2 ) - $half_flanking_bin_num * $sliding_size  ;
+	
+		if($first_start <=0){
+			print STDERR "$chr, $start, $end is close to start \n";
+			next;
+		}
+		$ID_index++;
+
+#	----------|----------
+#	         + ++
+		for my $bin_order ( (-1 * $half_flanking_bin_num)..$half_flanking_bin_num ){
+			my $interval_start ;
+				
+			$interval_start = $mid_point - int( ($bin_size - 1) /2 ) +  $bin_order * $sliding_size ;
+		
+			my $interval_end   = $interval_start + $bin_size - 1 ; # exclude half read length
+			if ($interval_start <= 0) {
+				die $_;			
+			}
+		
+			my $id =  $ID_index . ":" . $bin_order;
+			print OUT join("\t", ($id, $chr, $interval_start, $interval_end, "+")), "\n";
+		}	
+	}
+
+	close IN;
+	close OUT;
+}
+
+
+#Feb 17, 2014
+# for step1_extract_ChIP_read_num_pairs_using_featureCounts.pl
+# input SAF file and bam dir
+
+#featureCounts -T 8 -p -O -F SAF -a TAIR10_WinSize1000bp_sliding500bp_SAF.txt   -o  TAIR10_WinSize1000bp_sliding500bp_featureCounts_for_MBD7_ChIP_pO.txt  [bam]
+#Kai_Module::run_featureCounts($SAF_file, $featureCounts_outfile, $feature_log_file, $CPU_thread, $bam_dir, $debug);
+
+sub run_featureCounts{
+	my ($SAF_file, $featureCounts_outfile, $feature_log_file, $CPU_thread, $bam_dir, $debug_featureCounts) = @_;
+	unless ( -e $SAF_file){
+		print STDERR "$SAF_file do NOT exists\n\n";
+		die;
+	}
+	if ( -e $featureCounts_outfile) {
+		print STDERR " $featureCounts_outfile exists \n\n";
+		die;
+	}
+	unless ( -d $bam_dir) {
+		print STDERR "$bam_dir do NOT exists\n\n";
+	}
+	
+	opendir (DIR, $bam_dir) or die;
+	my @bam_names = grep /\.bam$/, readdir DIR;
+	close DIR;
+	my @real_bams = map {File::Spec->catfile($bam_dir, $_)} @bam_names;
+	
+	my $bam_files = join(" ", @real_bams);
+	my $cmd = "featureCounts -T $CPU_thread -p -O -F SAF -a $SAF_file -o $featureCounts_outfile $bam_files 2>> $feature_log_file";
+	print STDERR $cmd, "\n\n";
+	unless($debug_featureCounts){
+		`$cmd`;
+	}
+}
+
+
+#Gene_all_coordinate_SAF.txt
+#"featureCounts" "-T" "3" "-p" "-O" "-F" "SAF" "-a" "Gene_all_coordinate_SAF.txt" "-o" "all_Gen
+#Geneid  Chr     Start   End     Strand  Length  MBD7_5_My..bam
+#0	1	 2	 3	 4	 5		6
+
+#Kai_Module::extract_featureCounts_results($featureCounts_outfile, $output, $half_flanking_bin_num, $debug);
+
+sub extract_featureCounts_results{
+	my ( $featureCounts_outfile, $output, $half_flanking_bin_num,  $debug_extract_featureCounts ) = @_;
+	die " $featureCounts_outfile Not Exists\n\n " if ( !$debug_extract_featureCounts and !(-e $featureCounts_outfile));
+	
+	if ( $debug_extract_featureCounts ) {
+		print STDERR "debug : return from extract_featureCounts_results\n\n";
+		return;
+	}
+	
+	if (-e $output){
+		print STDERR "output $output should not exists!!\n";
+		die;
+	}
+	open(OUT, ">>$output") or die;
+	open(IN, $featureCounts_outfile) or die;
+	my $cmd_line = <IN>;
+	my $head = <IN>;
+	chomp $head;
+	
+	my @heads_a = split "\t", $head;
+	my $names_start_index = 6;
+	my @bam_names;# = @heads_a[$names_start_index..$#heads_a];
+	
+	#my ($volume, $directories, $infile_name) =       File::Spec->splitpath( $input );
+	
+	for my $i( $names_start_index..$#heads_a){
+		my ($volume, $directories, $infile_name) =       File::Spec->splitpath( $heads_a[$i] );
+		$infile_name =~ s/\.bam//;
+		push @bam_names, $infile_name;
+	}
+	
+	my %sums;
+	my $num = 0;
+	while (<IN>) {
+		chomp;
+		
+		my @a = split "\t";
+		
+		#my $id =  $ID_index . ":" . $bin_order;
+		my ( $ID_index , $bin_order ) = split ":", $a[0];
+		$num = $ID_index;
+		for my $i($names_start_index..$#a){
+			$sums{($bam_names[($i - $names_start_index)])}->{$bin_order} += $a[$i];
+		}
+	}
+	
+#	print STDERR "file lines: $num\n";
+	print OUT join("\t", ("Sample", (-1*$half_flanking_bin_num)..$half_flanking_bin_num)), "\n";
+	
+	foreach my $sample (sort keys %sums){
+		print OUT $sample, "\t";
+		
+		for my $i ( (-1*$half_flanking_bin_num)..$half_flanking_bin_num) {
+			my $tmp = 0;
+			if (defined $sums{$sample}->{$i} ) {
+
+				$tmp = eval sprintf ("%.2f",  ($sums{$sample}->{$i}) / $num );
+				print OUT $tmp;
+			}
+			if ($i == $half_flanking_bin_num) {
+				print OUT "\n";#code
+			}else{
+				print OUT "\t";
+			}
+			
+			
+		}
+		
+	}
+	
+	
+	close IN;
+	close OUT;
+}
 
 1;
 __END__

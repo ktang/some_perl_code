@@ -2,6 +2,8 @@
 use strict;
 use File::Spec;
 
+#on Feb 7, 2014, I changed max_bp from 30 to 31
+
 #v0.0.1
 # modified from  v0.1.1
 # only consider sRNA with size 18-30 and modified to exclude sRNAs that overlap with structural RNA.
@@ -34,7 +36,7 @@ die unless (-e $input) ;
 die unless (-d $outdir);
 
 my $min_bp = 18;
-my $max_bp = 30;
+my $max_bp = 31; #30;
 
 my $out_no_structural_RNA	= File::Spec->catfile ($outdir, $outpre . "_NotOver_structural_RNA.bam");
 my $out_with_structural_RNA	= File::Spec->catfile ($outdir, $outpre . "_over_structural_RNA.bam");

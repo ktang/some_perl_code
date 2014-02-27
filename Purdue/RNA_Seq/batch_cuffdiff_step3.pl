@@ -37,9 +37,15 @@ print STDERR join("\n", @files), "\n\n";
 # my $usage = "$0 \n<indir> <in1> <in2> <outdir> <phred_33_64>\n\n";
 
 foreach my $file(@files){
-	next if ($file =~ /$bam_wt/);
-	next if ($bam_wt =~ /$file/);
-	if($file =~ /(\S+)_thout\.bam$/){
+	#next if ( $file =~ /$bam_wt/ );
+	#next if ($bam_wt =~ /$file/);
+	
+	if ($bam_wt =~ /$file/ or  $file =~ /$bam_wt/){
+		print STDERR $file . "match WT\n\n";
+		next;
+	}
+	
+	if($file =~ /(\S+)_thout.+\.bam$/){
 		
 		my $lab_mut = $1;
 		my $sub_dir = File::Spec->catfile($outdir, $lab_mut . "_vs_" . $lab_wt . "_cuffdiff" );
@@ -57,6 +63,9 @@ foreach my $file(@files){
 		}else{
 			print STDERR "OK\n";
 		}
+	}
+	else{
+		die $file;
 	}
 }
 

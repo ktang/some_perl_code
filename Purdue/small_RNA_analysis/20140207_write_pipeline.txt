@@ -1,0 +1,10 @@
+1, trim adaptor
+/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/1_trim_adaptor
+
+2,bowtie mapping
+/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/bowtie_pipeline/batch_bowtie1_sRNA_pipeline_Col0_v0.1.pl
+
+3, split non-structural RNA [no overlap with known structural RNA]
+/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/step1_split_bam2_twoBam_add_NH_tag_v0.0.1.pl
+
+/Users/tang58/scripts_all/perl_code/Purdue/small_RNA_analysis/batch_step1_split_bam2_twoBam_add_NH_tag_v0.0.1.pl

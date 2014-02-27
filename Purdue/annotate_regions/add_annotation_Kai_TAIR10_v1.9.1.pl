@@ -11,7 +11,9 @@
 # add a column to annotated down_1kb (1kb from 3UTR)
 
 #v1.9.1 modifed from v1.9; Dec 17, 2013
-# change the code in man for sub
+# add  sub find_patterns in the main bodypart.
+# As I checked on Feb 6, 2014, the output of v1.9 and v1.9.1 is the same.
+# Also the time of excute is almost the same.
 
 =head2
 version 1.5(from v3)

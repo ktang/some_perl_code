@@ -3,7 +3,7 @@
 use strict;
 use Bio::SeqIO;
 
-         # get command-line arguments, or die with a usage statement
+#get command-line arguments, or die with a usage statement
          my $usage = "$0 \n <infile> <infileformat> <outfile> <outfileformat> \n\n";
          die $usage unless (@ARGV == 4);
          my $infile = shift or die $usage;
@@ -12,7 +12,7 @@ use Bio::SeqIO;
          my $outfileformat = shift or die $usage;
 
          # create one SeqIO object to read in,and another to write out
-         my $seq_in = Bio::SeqIO->new('-file' => "<$infile",
+         my $seq_in = Bio::SeqIO->new('-file' => " zcat $infile |",
                                       '-format' => $infileformat);
          my $seq_out = Bio::SeqIO->new('-file' => ">$outfile",
                                        '-format' => $outfileformat);

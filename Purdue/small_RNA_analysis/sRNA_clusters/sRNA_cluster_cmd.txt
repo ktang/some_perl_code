@@ -1,0 +1,194 @@
+We want to identify sRNA clusters that having no methylation and having no other originate. (uniquely mapped reads)
+
+######
+# step 1:
+#########
+extract uniquely mapped reads
+#samtools view -h new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted.bam| less | head -1000 | grep -E '^@|NH:i:1$' | less
+#| samtools view -b -S -  >
+#samtools view -h new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted.bam| less | head -1000 | grep -E '^@|NH:i:1$' | samtools view -b -S -  > debug.bam
+
+time samtools view -h new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted.bam | grep -E '^@|NH:i:1$' | samtools view -b -S -  > new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted_uniq.bam
+real	5m23.992s
+user	5m58.572s
+sys	0m3.411s
+2448088 reads
+
+######
+# step 2:
+#########
+#time bedtools genomecov -ibam  ../sRNA_bam_ln/new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted.bam  -bga -split -trackline -trackopts name="\"sRNA coverage(excluding structural RNAs)\"" | gzip > Col-0_sRNA-Seq.bedgraph.gz
+time bedtools genomecov -ibam  *bam -bg -split -trackline -trackopts name="\"sRNA coverage(uniquely mapped,excluding structural RNAs)\"" | gzip > Col-0_sRNA-Seq.bedgraph.gz
+#-bg not -bga, zero depth do not report
+
+time bedtools genomecov -ibam  new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted_uniq.bam -bg -split -trackline -trackopts name="\"sRNA coverage(uniquely mapped,excluding structural RNAs)\"" | gzip > HMWT_sRNA-Seq_no_structural_RNA_sorted_uniq.bedgraph.gz
+real	0m12.256s
+user	0m12.201s
+sys	0m1.494s
+
+
+#################
+# step 3, extract bed region with sRNA cluster
+#######################
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project_15:05:05_N=542$ 
+time zcat HMWT_sRNA-Seq_no_structural_RNA_sorted_uniq.bedgraph.gz | src/get_interval_from_bedgraph_file_with_depth_gap_cutoff.pl y 5 500 > HMWT_sRNA_Seq_no_structural_RNA_sorted_uniq_cluster_dep5_gap500.txt
+
+real	0m3.367s
+user	0m2.831s
+sys	0m0.030s
+
+time zcat HMWT_sRNA-Seq_no_structural_RNA_sorted_uniq.bedgraph.gz | src/get_interval_from_bedgraph_file_with_depth_gap_cutoff_v0.1.pl y 5 500 | grep -v t > HMWT_sRNA_Seq_no_structural_RNA_sorted_uniq_cluster_dep5_gap500_chr1_5_with_maxDep.txt
+
+real	0m2.725s
+user	0m2.894s
+sys	0m0.026s
+
+perl -lane '$F[0] = "chr". $F[0]; print join("\t", @F)' HMWT_sRNA_Seq_no_structural_RNA_sorted_uniq_cluster_dep5_gap500_chr1_5_with_maxDep.txt > HMWT_sRNA_Seq_no_structural_RNA_sorted_uniq_cluster_dep5_gap500_chr1_5_with_maxDep_tmp.txt
+delete others , manually add head and change name
+#################
+# step 4, cal meth level
+#######################
+#/Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/cal_meth_level_for_bed_list_single_isMeth_original_mC_NotEckerSuggest_v0.0.pl
+
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project_15:19:44_N=548$ 
+time /Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/cal_meth_level_for_bed_list_single_isMeth_original_mC_NotEckerSuggest_v0.0.pl colA_isMeth_chrC_error_separately_called.txt colA HMWT_sRNA_Seq_no_structural_RNA_sorted_uniq_cluster_dep5_gap500_chr1_5.txt HMWT_sRNA_uniq_cluster_dep5_gap500_meth_level.txt
+real	3m37.125s
+user	3m33.231s
+sys	0m3.294s
+
+time /Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/cal_meth_level_for_bed_list_single_isMeth_original_mC_NotEckerSuggest_v0.0.pl colA_isMeth_chrC_error_separately_called.txt colA HMWT_sRNA_Seq_no_structural_RNA_sorted_uniq_cluster_dep5_gap500_chr1_5_with_maxDep.txt HMWT_sRNA_uniq_cluster_dep5_gap500_meth_level.txt
+
+zcat HMWT_sRNA-Seq_no_structural_RNA_sorted_uniq.bedgraph.gz | src/get_interval_from_bedgraph_file_with_depth_gap_cutoff_v0.1.pl y 1 500 | grep -v t | wc -l
+   46911
+5=>15478
+10=>9948
+
+
+###############################################################################################################################################################################################
+# exclude sRNA that overlapping with structural RNA 
+#########################################################################################################################################################
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project_10:22:45_N=502$ time perl ~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/src/remove_sRNA_overlap_with_structural_RNA.pl new_HM_WT_v0.1_check_whole_no_structural_RNA_sorted_uniq.bam HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bam
+[samopen] SAM header is present: 7 sequences.
+
+real	0m34.567s
+user	0m45.546s
+sys	0m1.989s
+
+
+time bedtools genomecov -ibam HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bam -bg -split -trackline -trackopts name="\"sRNA coverage(uniquely mapped,excluding overlapping structural RNAs)\"" | gzip > HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bedgraph.gz
+
+zcat HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bedgraph.gz | ../src/get_interval_from_bedgraph_file_with_depth_gap_cutoff_v0.1.pl y 1 500 | grep -v t | wc -l
+   46873
+5=>15462
+10=>9929
+
+
+cal statistics
+time zcat HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bedgraph.gz | ../src/get_interval_from_bedgraph_file_with_depth_gap_cutoff_v0.1.pl y 1 500 | grep -v t | cut -f 4 | sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { mean = s/i; print "mean:", mean; print a[int(i*0.75)]; print a[int(i/2)]; print a[int(i*0.25)];}'
+mean: 26.4014
+3
+1
+1
+real	0m3.382s
+
+ time zcat HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bedgraph.gz | ../src/get_interval_from_bedgraph_file_with_depth_gap_cutoff_v0.1.pl y 1 500 | grep -v t | cut -f 4 | sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { mean = s/i; print "mean:", mean; print a[int(i*0.95)]; print a[int(i*0.9)]; print a[int(i*0.85)];  print a[int(i*0.8)];   }'
+mean: 26.4014
+51
+20
+10
+5
+
+zcat HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or.bedgraph.gz | ../src/get_interval_from_bedgraph_file_with_depth_gap_cutoff_v0.1.pl y 1 500 | grep -v t | perl -lane 'BEGIN{print join("\t", ("chr","start", "end", "length", "max_dep"))}  $F[0] ="chr".$F[0]; print join("\t", @F[0..2], $F[2]-$F[1] +1 ,$F[3]) if ($F[-1] >=5)' > HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt
+ #| less
+time /Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/cal_meth_level_for_bed_list_single_isMeth_original_mC_NotEckerSuggest_v0.0.pl ../colA_isMeth_chrC_error_separately_called.txt colA HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level.txt
+
+
+###################
+# extract up 1kb and down 1kb
+####################
+less HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt | perl -lane 'if($F[0] eq "chr") {print join("\t", ("chr", "start_up1kb", "end_up1kb", "label"))}else{$e = $F[1]-1; $s= ($F[1]-1000>0)?($F[1]-1000):1; print join("\t", $F[0], $s, $e, join("_",@F))}' > up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt #| less
+
+
+less HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt | perl -lane 'if($F[0] eq "chr") {print join("\t", ("chr", "start_down1kb", "end_down1kb", "label"))} else{$s = $F[2]+1; $e=$s+1000-1 ; print join("\t", $F[0], $s, $e, join("_",@F))}' > down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt #| less
+
+
+/Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/cal_meth_level_for_bed_list_single_isMeth_original_mC_NotEckerSuggest_v0.0.pl ../colA_isMeth_chrC_error_separately_called.txt colA up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth.txt  && /Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/cal_meth_level_for_bed_list_single_isMeth_original_mC_NotEckerSuggest_v0.0.pl ../colA_isMeth_chrC_error_separately_called.txt colA down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth.txt
+
+
+
+add tag in head
+less up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth.txt    | perl -lane 'if($F[0] eq  "chr") {for $i (4..$#F){$F[$i].="_up1kb"}} print join("\t", @F)' | less
+less down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth.txt  | perl -lane 'if($F[0] eq  "chr") {for $i (4..$#F){$F[$i].="_down1kb"}} print join("\t", @F)' | less
+
+
+less up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth.txt    | perl -lane 'if($F[0] eq  "chr") {for $i (4..$#F){$F[$i].="_up1kb"}} print join("\t", @F)'   > up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth_tag.txt
+less down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth.txt  | perl -lane 'if($F[0] eq  "chr") {for $i (4..$#F){$F[$i].="_down1kb"}} print join("\t", @F)' > down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth_tag.txt
+
+###########
+# final list used for filter
+##############
+paste HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level.txt up1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth_tag.txt  down1kb_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_colA_meth_tag.txt  | perl -F"\t" -lane ' print join("\t", (@F[0..16, 21..32, 37..48]))  ' > HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_with_flaking1kb.txt
+
+
+###########
+# add Jacobsen WT
+##############
+time perl ../src/add_ref_meth_level_use_wig_files_v0.0.pl HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_with_flaking1kb.txt GSM980986_WT_rep2_mC.wig mC_WT2 tmp.txt &&  time perl ../src/add_ref_meth_level_use_wig_files_v0.0.pl tmp.txt GSM980987_WT_rep3_mC.wig mC_WT3 HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_with_flaking1kb_JaCellWT.txt
+
+##################
+# filter with raw_wmC_colA <= 5 and raw_mmC_colA <= 5
+###################
+less HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_with_flaking1kb_JaCellWT_annotated_TAIR10.txt | awk '{ if ($9<=5 && $17 <= 5 || $1 == "chr" )print $0 }' > HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_mmC5_wmC5.txt
+
+
+
+############
+# add ros1 rdd meth level
+#############
+# manually change ln file name 2 A_vs_B_hyp_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt
+
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/excluding_overlaped_structualRNA_reads_11:14:00_N=545$
+time perl /Users/tang58/Kai_BS/for_publish/batch_cal_meth_level_original_mC_NotEckerSuggest/batch_cal_meth_level_for_bed_list_original_mC_NotEckerSuggest_multiple_isMeth.pl ln_isMeth/ tmp/ add_meth_level/
+real	16m19.770s
+user	16m10.636s
+sys	0m8.774s
+
+#########
+# histone score
+############### 
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/excluding_overlaped_structualRNA_reads_14:33:07_N=548$ time perl ~/scripts_all/perl_code/Purdue/Histone_src/histone_score/step1.1_extract_bam4dep_sum.pl tmp/A_vs_B_hyp_HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_bed.txt display_simple_bam_ln/ add_meth_level/HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_histone_score.txt
+real	8m27.626s
+user	7m5.392s
+sys	0m49.394s
+
+
+#########
+# final list
+#############
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/excluding_overlaped_structualRNA_reads/add_meth_level_11:12:58_N=589$ paste *txt | perl -F"\t" -lane 'print if($F[1] ==$F[54] and $F[1] == $F[81]) '  | perl -F"\t" -lane 'print join("\t", (@F[0..5,8,13..16,25..28,37..52,58..79,96,108,120,132])) ' > 1272_loci_final_list.txt #| less
+
+HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_mmC5_wmC5.txt  histone_1272loci.txt meth_1272loci.txt | less
+
+paste HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_dep1_gap500_filter_maxGap5_meth_level_mmC5_wmC5.txt  histone_1272loci.txt meth_1272loci.txt | less | perl -F"\t" -lane 'print if($F[1] ==$F[54] and $F[1] == $F[81]) '  | perl -F"\t" -lane 'print join("\t", (@F[0..5,8,13..16,25..28,37..52,58..79,96,108,120,132])) ' | less
+
+
+#########
+# final list exclude miRNA and tasiRNA (1272 - 101 = 1171 loci)
+#############
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/excluding_overlaped_structualRNA_reads/add_meth_level_10:52:53_N=503$ 
+less 1272_loci_final_list.txt | grep -v miRNA | grep -v trans-acting > 1272-101miRNA_tasiRNA_final_list.txt
+
+OLD file seem to have empty first column
+less old_1272_loci_final_list.txt | perl -F"\t" -lane 'print join("\t", @F[1..$#F])' > from_old_1272_loci_final_list.txt 
+
+
+perl ~/Weiqiang_idm1_1_Nature_paper/overlap_bed_first_in_second.pl 1272-101miRNA_tasiRNA_final_list.txt HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_24nt_dep1_gap500_filter_maxDep5_bed.txt 0
+input must have a head with Start in it.
+
+HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_24nt_dep1_gap500_filter_maxDep5_bed.txt: 8639
+1272-101miRNA_tasiRNA_final_list.txt: 1171
+overlap (gap:0): 308 / 1171 = 26.3%
+
+
+ime perl ~/Weiqiang_idm1_1_Nature_paper/overlap_bed_first_in_second_v1.3.pl . 1272-101miRNA_tasiRNA_final_list.txt HMWT_no_structural_RNA_sorted_uniq_exclude_overlpping_or_24nt_dep1_gap500_filter_maxDep5_bed.txt  0  > 1272-101miRNA_tasiRNA_final_list_overlap_with_24nt_sRNA_308loci.txt
+
