@@ -767,6 +767,24 @@ sub extract_featureCounts_results{
 	close OUT;
 }
 
+#my $gz1    = get_fqs("1.fq.gz", $indir);
+sub get_fqs{
+	my ($label, $dir) = @_;
+	die "$dir do NOT exists\n\n" unless (-d $dir);
+	
+	opendir(DIR, $dir) or die;
+	my @files = grep /$label/, readdir DIR;
+	closedir DIR;
+	
+	my @full_files = map { File::Spec->catfile($dir, $_) } @files;
+	foreach my $tmp (@full_files){
+		die $tmp unless( -e $tmp);
+	}
+
+	my $res = join(" ", @full_files);
+	return ($res);
+}
+
 1;
 __END__
 

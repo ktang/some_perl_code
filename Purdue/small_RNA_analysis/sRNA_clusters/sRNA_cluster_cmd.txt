@@ -1,3 +1,107 @@
+Two useful paper:
+PNAS 108:2621 Groszmann et al
+Plant Cell 24:875
+
+1, bam2bed
+perl script
+
+2, get islands with at least 3 reads
+time bedtools merge  -i col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_sorted_bed.txt -n | perl -lane 'print join("\t", ( @F[0..2], "." ,$F[3] ) ) if($F[-1] >= 3)' >| step1_island_Heng_WT_24nt_N3.txt
+
+3 Cluster were obtained using MergeBed with the Ðd option set to 100.
+ time bedtools merge  -i step1_island_Heng_WT_24nt_N3.txt -d 100 -n -scores sum > step2_group_island_Heng_WT_24nt_N3.txt 
+
+4, get some stat and final cluster
+less step2_group_island_Heng_WT_24nt_N3.txt | perl -lane 'BEGIN{print join("\t", ("chr","start","end", "island_number", "sRNA_num"))} if( ($F[3]==1 and ($F[2]-$F[1]+1>=210 or $F[-1]>=25)) or $F[3]>=2 ) {$F[0] = "chr". $F[0]; print join("\t", @F)}' > HengWT_sRNA_14557_clusters.txt
+(210bp and 25 sRNA)
+
+
+####################
+# 1, ln bam file
+####################
+
+####################
+# 2, get bed file
+#####################
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/24nt_only/WT_Heng_PNAS_17:01:35_N=513$
+ time samtools view col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_sorted.bam  | perl -lane ' print join("\t", (@F[2..3], $F[3] + length($F[9]) - 1 ) )  ' |grep -v t   > col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_sorted_bed.txt
+
+real	0m12.402s
+user	0m13.949s
+sys	0m0.299s
+
+
+bedtools -i col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_sorted_bed.txt -n | less
+
+bedtools merge  -i col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_sorted_bed.txt -n | perl -lane 'print if($F[-1] >= 3)' | wc -l
+   61264
+
+####################
+# 3 get islands
+#####################
+time bedtools merge  -i col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_sorted_bed.txt -n | perl -lane 'print join("\t", ( @F[0..2], "." ,$F[3] ) ) if($F[-1] >= 3)' >| step1_island_Heng_WT_24nt_N3.txt
+
+real	0m2.413s
+user	0m2.956s
+sys	0m0.056s
+
+####################
+# 4 get group island
+#####################
+bedtools merge  -i step1_island_Heng_WT_24nt_N3.txt -d 100 -scores sum  | perl -lane 'print join("\t", ( @F[0..2], "." ,$F[3] ) ) ' | less
+
+ time bedtools merge  -i step1_island_Heng_WT_24nt_N3.txt -d 100 -n -scores sum > step2_group_island_Heng_WT_24nt_N3.txt 
+
+real	0m0.445s
+user	0m0.364s
+sys	0m0.006s
+
+
+less step2_group_island_Heng_WT_24nt_N3.txt | awk '{if($4 >=2){print  }} ' | wc -l
+   13002 
+
+less step2_group_island_Heng_WT_24nt_N3.txt | awk '{if($4 >=2){print  }} ' |  awk '{n++; l+=($3-$2+1)} END{print l/n}' 
+282.821
+
+less step2_group_island_Heng_WT_24nt_N3.txt | awk '{if($4 >=2){print $3-$2+1 }} ' |  sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { mean = s/i; print "mean:", mean; print a[int(i*0.75)]; print a[int(i/2)]; print a[int(i*0.25)];print i}'
+mean: 282.821
+323
+210
+147
+13002
+
+less step2_group_island_Heng_WT_24nt_N3.txt | awk '{if($4 >=2){print $5 }} ' |  sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { mean = s/i; print "mean:", mean; print a[int(i*0.75)]; print a[int(i/2)]; print a[int(i*0.25)];print i}'
+mean: 66.0694
+65
+25
+12
+13002
+
+ less step2_group_island_Heng_WT_24nt_N3.txt | perl -lane 'BEGIN{print join("\t", ("chr","start","end", "island_number", "sRNA_num"))} if( ($F[3]==1 and ($F[2]-$F[1]+1>=210 or $F[-1]>=25)) or $F[3]>=2 ) {$F[0] = "chr". $F[0]; print join("\t", @F)}' > HengWT_sRNA_14557_clusters.txt
+(210bp and 25 sRNA)
+
+#########################
+# overlap with other method
+######################
+../WT_Heng/col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_dep1_gap500_filter_minDep5_bed.txt: 8429
+HengWT_sRNA_14557_clusters.txt: 14557
+overlap (gap:0): 14209 / 14557 = 97.6%
+
+~/misc/Huiming_Zhang/15_20130912_sRNA_without_methylation_project/24nt_only/WT_Heng_PNAS_22:10:43_N=572$ perl ~/Weiqiang_idm1_1_Nature_paper/overlap_bed_first_in_second_diff_dir.pl  ../WT_Heng/col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_dep1_gap500_filter_minDep5_bed.txt HengWT_sRNA_14557_clusters.txt 
+input must have a head with Start in it.
+
+HengWT_sRNA_14557_clusters.txt: 14557
+../WT_Heng/col0_Heng_clean_sRNA_bowtie1.0.0_v0k100_NotOver_structural_RNA_24nt_uniq_dep1_gap500_filter_minDep5_bed.txt: 8429
+overlap (gap:0): 7017 / 8429 = 83.2%
+
+
+less HengWT_sRNA_14557_clusters.txt | grep -v start|awk '{print $3-$2+1}' | sort -g| sort -g | awk ' { a[i++]=$1;  s+=$1 }   END { print i;mean = s/i; print "mean:", mean; print a[int(i*0.75)]; print a[int(i/2)]; print a[int(i*0.25)];}' 
+14557
+mean: 265.553
+306
+197
+135
+
 We want to identify sRNA clusters that having no methylation and having no other originate. (uniquely mapped reads)
 
 ######

@@ -81,6 +81,8 @@ while(<MT>){
 		$chr = "chr".$chr;
 	}
 	
+	die unless ($chr =~ /chr[12345mc]/);
+	
 	$mat_regions{$chr}->{$start} = [$start, $end];
 	$descs {$chr}->{$start} = $_;
 }

@@ -9,6 +9,8 @@ die "script" unless (-e $script);
 use strict;
 use File::Spec;
 
+print STDERR "change mode_flag p and r in script \n\n";
+
 my $debug = 0;
 my $usage = "$0 \n<indir> <all_outdir> < 33 or 64 (phred_33_64) >\n\n";
 die $usage unless(@ARGV == 3);
@@ -25,7 +27,8 @@ opendir(DIR, $indir) or die "dir";
 
 #my @files = grep /_1.fq.gz/, readdir DIR;
 
-my @dirs = grep /mRNA_seq/i ,  readdir DIR;
+#my @dirs = grep /mRNA_seq/i ,  readdir DIR;
+my @dirs = grep /RNA_seq/i ,  readdir DIR;
 
 closedir DIR;
 
@@ -37,10 +40,10 @@ print STDERR join("\n", @dirs), "\n\n";
 
 #foreach my $in1(@files){
 foreach my $dir (@dirs){
-#	if($dir =~ /(\S+)_RNA_seq/){
+	if($dir =~ /(\S+)_RNA_seq/){
 		
-		#my $pre = $1;
-		my $pre = $dir;
+		my $pre = $1;
+		#my $pre = $dir;
 #		my $in2 = $pre . "_l1_2.fq.gz";
 		
 		my $sub_outdir = File::Spec->catfile($outdir, $pre . "_thout" );
@@ -55,7 +58,7 @@ foreach my $dir (@dirs){
 		if(!$debug){	
 			`$cmd`;
 		}
-#	}
+	}
 }
 
 exit;

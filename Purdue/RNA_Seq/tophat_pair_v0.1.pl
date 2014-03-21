@@ -19,10 +19,10 @@ my $debug = 0;
 my %Phred_h = ( 33=> " ", 64=>"--phred64-quals");
 
 
-my $p = 3;
-my $r = 200;
-my $mode_flag = "--b2-very-sensitive";
-
+my $p = 3; #3 #Use this many threads to align reads
+my $r = 0; #200;
+my $mode_flag = "--b2-fast";#"--b2-very-sensitive";
+#  --b2-very-fast  --b2-fast --b2-sensitive  --b2-very-sensitive
 
 my $gtf = "/Users/tang58/DataBase/TopHat/Ensembl/Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Archives/archive-2012-03-08-18-36-47/Genes/genes.gtf";
 die unless (-e $gtf);

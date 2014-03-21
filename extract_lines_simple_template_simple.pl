@@ -58,7 +58,7 @@ close(IN);
 close(OUT);
 
 for my $k (sort keys %IDs){
-	print STDERR $k, "\n";
+	print $k, "\n";
 }
 
 exit;
